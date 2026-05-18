@@ -144,10 +144,10 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.3.1'
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation('org.simpleframework:simple-xml:2.7.1') { exclude group: 'stax', module: 'stax-api' exclude group: 'xpp3', module: 'xpp3' }
-    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: 'release')
-    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: 'release')
-    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: 'release')
-    implementation(ext: 'aar', name: 'dlna-dmr-release', group: 'fongmi', version: 'release')
+    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: '1.4.5')
+    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: '1.4.5')
+    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: '1.4.5')
+    implementation(ext: 'aar', name: 'dlna-dmr-release', group: 'fongmi', version: '1.4.5')
     leanbackImplementation 'androidx.leanback:leanback:1.2.0-alpha04'
     leanbackImplementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     leanbackImplementation 'com.github.JessYanCoding:AndroidAutoSize:1.2.1'
