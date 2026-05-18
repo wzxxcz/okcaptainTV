@@ -115,7 +115,10 @@ dependencies {
     implementation 'androidx.media3:media3-exoplayer-rtsp:' + media3Version
     implementation 'androidx.media3:media3-exoplayer-smoothstreaming:' + media3Version
     // implementation 'androidx.media3:media3-ui:' + media3Version
-    implementation 'com.github.fongmi:Common:1.4.3'
+
+    // --- 修改点 1：Common 库版本改为 -SNAPSHOT ---
+    implementation 'com.github.fongmi:Common:-SNAPSHOT' 
+
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.biometric:biometric:1.1.0'
     implementation 'androidx.room:room-runtime:2.6.1'
@@ -139,16 +142,20 @@ dependencies {
     implementation 'org.chromium.net:cronet-embedded:76.3809.111'
     implementation 'org.eclipse.jetty:jetty-client:8.1.22.v20160922'
     implementation('org.eclipse.jetty:jetty-server:8.1.22.v20160922') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
-    implementation('org.eclipse.jetty:jetty-servlet:8.1.22.v20160922') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
+    implementation('org.eclipse.jetty:jetty-servlet:8.1.22.v20160922) { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
     implementation 'org.fourthline.cling:cling-core:2.1.2-SNAPSHOT'
     implementation 'org.fourthline.cling:cling-support:2.1.2-SNAPSHOT'
     implementation 'org.greenrobot:eventbus:3.3.1'
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation('org.simpleframework:simple-xml:2.7.1') { exclude group: 'stax', module: 'stax-api' exclude group: 'xpp3', module: 'xpp3' }
-    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: '1.4.3')
-    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: '1.4.3')
-    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: '1.4.3')
-    implementation(ext: 'aar', name: 'dlna-dmr-release', group: 'fongmi', version: '1.4.3')
+
+    // --- 修改点 2,3,4：下面这三个 aar 库的版本也改为 -SNAPSHOT ---
+    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: '-SNAPSHOT')
+    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: '-SNAPSHOT')
+    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: '-SNAPSHOT')
+    // 注意：如果你的项目里没有 dlna-dmr-release，可以忽略这一行，如果报错找不到这个库，就把它注释掉
+    // implementation(ext: 'aar', name: 'dlna-dmr-release', group: 'fongmi', version: '-SNAPSHOT')
+
     leanbackImplementation 'androidx.leanback:leanback:1.2.0-alpha04'
     leanbackImplementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     leanbackImplementation 'com.github.JessYanCoding:AndroidAutoSize:1.2.1'
