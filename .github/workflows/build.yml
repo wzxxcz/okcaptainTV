@@ -20,7 +20,7 @@ jobs:
         # 很多旧的 Android 项目现在需要 JDK 17 才能构建
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '11'
           distribution: 'temurin'
           cache: gradle
 
