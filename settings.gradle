@@ -2,21 +2,18 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
-        google() 
-        // 移除了 jcenter()，因为它已经停止维护，保留会拖慢构建速度
+        google()
+        // jcenter() 已移除，因为它已停止维护
     }
 }
 
 dependencyResolutionManagement {
+    // 修改点：将 FAIL_ON_PROJECT_REPOS 改为 PREFER_SETTINGS
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
-        // --- 🚀 国内加速 (针对武汉用户) ---
-        // 阿里云镜像放在最前面，优先匹配，解决国外网站访问慢的问题
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://maven.aliyun.com/repository/google" }
         
-        // --- 🌐 官方源 (备用) ---
-        // 如果阿里云没有找到，再去官方源找
+        // --- 🌐 官方源 (稳定首选) ---
+        // 将 mavenCentral() 和 google() 放在前面，优先使用官方源
         mavenCentral()
         google()
         
