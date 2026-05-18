@@ -2,29 +2,47 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
-        jcenter()
-        google()
+        google() 
+        // 移除了 jcenter()，因为它已经停止维护，保留会拖慢构建速度
     }
 }
+
 dependencyResolutionManagement {
-    // 修改点：将 FAIL_ON_PROJECT_REPOS 改为 PREFER_SETTINGS
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
+        // --- 🚀 国内加速 (针对武汉用户) ---
+        // 阿里云镜像放在最前面，优先匹配，解决国外网站访问慢的问题
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        
+        // --- 🌐 官方源 (备用) ---
+        // 如果阿里云没有找到，再去官方源找
         mavenCentral()
-        jcenter()
         google()
+        
+        // --- 📦 本地库 (你的私有文件) ---
         flatDir {
             dirs "$rootDir/app/libs", "$rootDir/quickjs/libs"
         }
+        
+        // --- 🔗 第三方远程库 (特定配置) ---
+        
+        // 1. JitPack (GitHub 开源库，如 fongmi/Common)
+        // 注意：这里必须用 https，且不需要 allowInsecureProtocol
         maven {
             url "https://jitpack.io"
         }
+        
+        // 2. 4thline (DLNA 库)
+        // 注意：这个网站只支持 http，所以必须单独写在一个块里，并声明 allowInsecureProtocol
         maven {
             url "http://4thline.org/m2"
-            allowInsecureProtocol = true
+            allowInsecureProtocol = true 
         }
     }
 }
+
+// --- 📂 模块包含 ---
 include ':app'
 include ':hook'
 include ':tvbus'
@@ -36,4 +54,5 @@ include ':youtube'
 include ':jianpian'
 include ':forcetech'
 include ':ijkplayer'
+
 rootProject.name = "TV"
