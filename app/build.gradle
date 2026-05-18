@@ -116,8 +116,8 @@ dependencies {
     implementation 'androidx.media3:media3-exoplayer-smoothstreaming:' + media3Version
     // implementation 'androidx.media3:media3-ui:' + media3Version
 
-    // --- 修改点：Common 库改为快照版 ---
-    implementation 'com.github.fongmi:Common:-SNAPSHOT'
+    // --- 修正：改回 1.4.3 ---
+    implementation 'com.github.fongmi:Common:1.4.3'
 
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.biometric:biometric:1.1.0'
@@ -142,7 +142,6 @@ dependencies {
     implementation 'org.chromium.net:cronet-embedded:76.3809.111'
     implementation 'org.eclipse.jetty:jetty-client:8.1.22.v20160922'
     implementation('org.eclipse.jetty:jetty-server:8.1.22.v20160922') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
-    // --- 修复点：这里补上了缺失的单引号 ---
     implementation('org.eclipse.jetty:jetty-servlet:8.1.22.v20160922') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
     implementation 'org.fourthline.cling:cling-core:2.1.2-SNAPSHOT'
     implementation 'org.fourthline.cling:cling-support:2.1.2-SNAPSHOT'
@@ -150,10 +149,12 @@ dependencies {
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation('org.simpleframework:simple-xml:2.7.1') { exclude group: 'stax', module: 'stax-api' exclude group: 'xpp3', module: 'xpp3' }
 
-    // --- 修改点：下面这三个 aar 库也改为快照版 ---
-    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: '-SNAPSHOT')
-    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: '-SNAPSHOT')
-    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: '-SNAPSHOT')
+    // --- 修正：改回 1.4.3 ---
+    implementation(ext: 'aar', name: 'danmaku', group: 'fongmi', version: '1.4.3')
+    implementation(ext: 'aar', name: 'dlna-core-release', group: 'fongmi', version: '1.4.3')
+    implementation(ext: 'aar', name: 'dlna-dmc-release', group: 'fongmi', version: '1.4.3')
+    // 如果下面这个库你之前没有用到，或者报错，可以注释掉
+    // implementation(ext: 'aar', name: 'dlna-dmr-release', group: 'fongmi', version: '1.4.3')
 
     leanbackImplementation 'androidx.leanback:leanback:1.2.0-alpha04'
     leanbackImplementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
